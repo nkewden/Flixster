@@ -1,1 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Charis+SIL:ital@1&family=Jost:ital,wght@1,800&display=swap');
+
+*{
+    box-sizing: border-box;
+}
+
+:root{
+    --main-color: hotpink;
+}
+
+body{
+    background-color: rgb(152, 177, 210);
+    margin: 0;
+
+}
+
+header{
+    padding: 1rem;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+#search-input {
+    background-color: transparent;
+    border: 2px solid;
+}
+
 
