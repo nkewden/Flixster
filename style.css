@@ -24,6 +24,26 @@ header{
 #search-input {
     background-color: transparent;
     border: 2px solid;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    color: black;
+    font-family: initial;
 }
 
+#search-input {
+    outline: 0;
+    background-color: rgb(152, 177, 210);
+}
+
+/* .movie-card{
+    display: flex;
+    flex-flow: column, wrap;
+    padding: 20px;
+} */
+
+img{
+
+    padding: 20px;
+}
 
