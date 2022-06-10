@@ -1,18 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Charis+SIL:ital@1&family=Jost:ital,wght@1,800&display=swap');
-
-*{
-    box-sizing: border-box;
-}
-
-:root{
-    --main-color: hotpink;
-}
+@import url('https://fonts.googleapis.com/css2?family=Charis+SIL:ital@1&family=Jost:ital,wght@1,800&display=swap'); */
 
 body{
-    background-color: rgb(152, 177, 210);
-    margin: 0;
-
+    background-color: black;
+    margin: 0; 
 }
+
 
 header{
     padding: 1rem;
@@ -29,21 +21,28 @@ header{
     font-size: 1rem;
     color: black;
     font-family: initial;
-}
-
-#search-input {
     outline: 0;
     background-color: rgb(152, 177, 210);
-}
+} 
 
-/* .movie-card{
+#movies-grid {
     display: flex;
-    flex-flow: column, wrap;
+    flex-wrap: wrap;
     padding: 20px;
-} */
-
-img{
-
+    justify-content: space-between;
+    height: 600px;
     padding: 20px;
-}
+ }
+ 
+ img {
+    height: 410px;
+    width: 270px;
+ }
+ 
+ .movie-card {
+    padding-bottom: 10px;
+    max-width: 270px;
+ }
+
+
 

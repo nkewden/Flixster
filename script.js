@@ -11,6 +11,9 @@ const movieCard = document.querySelector('.movie-card');
 const movieTitle = document.querySelector('.movie-title');
 const movieImage = document.querySelector('.movie-poster');
 const movieVotes = document.querySelector('.movie-votes');
+const loadMoreEl = document.querySelector('#load-more-movies-btn')
+
+let pageNum = 1;
 
 
 
@@ -26,22 +29,21 @@ const movieVotes = document.querySelector('.movie-votes');
 
 
 
-async function getMovies (event) {
-    
-    console.log(event)
-    const searchWord = search.value;
-    console.log(search)
-    let apiUrl = 'https://api.themoviedb.org/3/search/movie?api_key=b9241059a29f2558a0863649e677788d' + '&query=' + searchWord; 
-    console.log(apiUrl)
+async function getMovies () {
+    if (search == null) {
+    }else {
+        searchWord = search.value.toLowerCase();
+        movieCard.innerHTML = '';
+     }
+    let apiUrl = 'https://api.themoviedb.org/3/search/movie?page=' + pageNum + '&api_key=b9241059a29f2558a0863649e677788d' + '&query=' + searchWord; 
     const response = await fetch(apiUrl);
     const responseData = await response.json();
-    console.log(responseData)
     displayResult(responseData);
 }
 
 
 function displayResult(response) {
-    movieCard.innerHTML = '';
+    
     response.results.forEach(result => {
             movieCard.innerHTML += `
 
@@ -52,6 +54,7 @@ function displayResult(response) {
                 <span class="${getColor(result.vote_average)}">${result.vote_average}</span>
             </div>
             
+
             <div class="popup">
                 <h3>Overview</h3>
                 ${result.overview}
@@ -76,6 +79,13 @@ function getColor (vote) {
 function setUp (event) {
     event.preventDefault();
     getMovies();
+}
+
+loadMoreEl.addEventListener("click", loadMore);
+
+function loadMore(evt) {
+   pageNum++;
+   getMovies(evt);
 }
 
 
