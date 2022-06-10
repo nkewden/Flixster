@@ -1,48 +1,93 @@
-@import url('https://fonts.googleapis.com/css2?family=Charis+SIL:ital@1&family=Jost:ital,wght@1,800&display=swap'); */
-
-body{
-    background-color: black;
-    margin: 0; 
-}
-
-
-header{
-    padding: 1rem;
-    display: flex;
-    justify-content: flex-end;
+/*Google Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+    scroll-padding: 2rem;
 
 }
 
-#search-input {
-    background-color: transparent;
-    border: 2px solid;
-    padding: 0.5rem 1rem;
-    border-radius: 50px;
-    font-size: 1rem;
-    color: black;
-    font-family: initial;
-    outline: 0;
-    background-color: rgb(152, 177, 210);
-} 
+:root {
+    --main-color: #ffb43a;
+    --hover-color: hsl(37, 94%, 57%);
+    --body-color: #1e1e2a;
+    --container-color: #2d2e37;
+    --text-color: #fcfeef; 
+}
 
-#movies-grid {
-    display: flex;
-    flex-wrap: wrap;
-    padding: 20px;
-    justify-content: space-between;
-    height: 600px;
-    padding: 20px;
- }
- 
- img {
-    height: 410px;
-    width: 270px;
- }
- 
- .movie-card {
-    padding-bottom: 10px;
-    max-width: 270px;
- }
+.logo span {
+    color: var(--main-color);
+}
+
+#header {
+    text-align: center;
+    position: 0;
+    top: 0;
+    left: 0;
+
+}
+
+body { 
+   background-color: var(--body-color);
+   margin: 0;
+   padding: 0;
+   color: #fff;
+}
+
+.movies{
+   margin: 10px;
+   display: inline-grid;
+}
+
+.movieDetails {
+   display: flex;
+   flex-direction: row;
+   /* flex-flow: row nowrap; */
+   /* justify-content: space-between; */
+   width: 100px;
+}
+
+#movie-votes {
+   width: 10px;
+}
+
+.movie-title {
+    font-size: 3px;
+}
+
+#load-more-movies-btn {
+   margin: 0%;
+   text-align: center;
+   align-items: center;
+}
+
+#form {
+    font-size: 0.938rem;
+    border: none;
+}
+
+.search{
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 1px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
 
 
 
+}
+
+.close-search-btn {
+    background-color: red;
+    border: none;
+    color: white;
+    display: inline-block;
+    font-size: 14px;
+    font-size: 14px;
+
+}

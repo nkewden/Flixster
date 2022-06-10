@@ -1,21 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Website</title>
-
     <!-- link css-->
     <link rel="stylesheet" href="style.css" />
+    <!--Website tab icon-->
+    <link rel="shortcut icon" href="img/clip2.png" type="image/x-icon">
+    
 </head>
 <body>
     <!--Header for the website-->
     <div id="header" class ="container">
-        <h1 class="title" style="color: lightgray" >🍿Flixster</h1>
+        <h1 class="title" style="color: lightgray"><a class="logo">🍿 Flix<span>ster</span></a></h1>
          <form id="form" autocomplete="off">
-         <input id="search-input" type="text" placeholder="Search a movie.." name="movie-search"/>
-         <button class="search-input">Search Movies</button>
+         <input id="search-input" type="search" placeholder="Search Movie" name="movie-search"/>
+         <button class="search">Search Movies</button>
          <button class="close-search-btn">Clear Results</button>
         </form>
     </div>
@@ -23,7 +26,7 @@
     <!--The layout of the website-->
     <div class="layout">
         <section id="movie" class ="container"> 
-            <h3 class="now-playing" style="color: rgb(100, 185, 227)">Now Playing</h3>
+            <h3 class="now-playing" style="color: #ffb43a">Now Playing</h3>
         </section>
     </div>
 

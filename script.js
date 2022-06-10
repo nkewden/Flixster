@@ -1,73 +1,60 @@
-const API_KEY = 'api_key=b9241059a29f2558a0863649e677788d';
-const BASE_URL = 'https://api.themoviedb.org/3/';
-const API_URL = BASE_URL + 'discover/movie?primary_release_date.gte=2022-04-09&primary_release_date.lte=2022-06-09&' + API_KEY;
-const IMG_URL = 'https://image.tmdb.org/t/p/w500'
-const searchURL = BASE_URL + '/search/movie?' + API_KEY;
-
-const form = document.querySelector('#form');
-const search = document.querySelector('#search-input');
-const moviesGrid = document.querySelector('#movies-grid');
-const movieCard = document.querySelector('.movie-card');
-const movieTitle = document.querySelector('.movie-title');
-const movieImage = document.querySelector('.movie-poster');
-const movieVotes = document.querySelector('.movie-votes');
-const loadMoreEl = document.querySelector('#load-more-movies-btn')
-
+//Constants
 let pageNum = 1;
+const pagelimit = 28;
+// const offset = pageNum*pagelimit;
+let searchTerm = '';
+
+//API and URLs
+const searchMovieUrl = "https://api.themoviedb.org/3/search/movie?api_key=";
+const nowPlayingUrl = "https://api.themoviedb.org/3/movie/now_playing?&api_key=";
+const apiKey = "b9241059a29f2558a0863649e677788d";
+
+//Website Elements 
+const loadMovies= document.querySelector(".load-more-movies-btn");
+const movieCard = document.querySelector("#movie-card");
+const searchInput = document.getElementById('search-input');
+const searchForm = document.getElementById('form');
+const clearSearch = document.querySelector('.close-search-btn');
+// const IMG_URL = 'https://image.tmdb.org/t/p/w500'
 
 
 
+//The initial load of the website
+async function initialLandingPage(searchQuery) {
+    const response = await fetch(searchMovieUrl + apiKey + "&query=" + searchQuery + "&page=" + pageNum);
+    const responseData = await response.json();
+    const data = responseData.results
+    // console.log("i'm here")
+    data.forEach(element => displayMovies(element));
+}
 
 
- async function initialLoad () {
-    let apiUrl = 'https://api.themoviedb.org/3/discover/movie?primary_release_date.gte=2022-04-09&primary_release_date.lte=2022-06-09&api_key=b9241059a29f2558a0863649e677788d'
+//where we fetch our movies to be able to display later 
+async function getMovies(){
+    const apiUrl = nowPlayingUrl + apiKey + "&q=" + searchTerm + "&language=en-US&page=" + pageNum;
     const response = await fetch(apiUrl);
     const responseData = await response.json();
-    displayResult(responseData);
-    
+    const data = responseData.results
+    data.forEach(element => displayMovies(element));
+}
+
+//where we display the fetch movies on the screen
+function displayMovies(event) {
+    movieCard.innerHTML+= `
+    <div class="movies">
+    <img class="movie-poster" src="https://image.tmdb.org/t/p/w500${event.poster_path} "alt=${event.title} width="190"/>
+    <div class="movieDetails"
+        <span class ="movie-title" style="color: white; "> ${event.title}</span> 
+        <span id="movie-votes" style="color: ${getColor(event.vote_average)};">${event.vote_average}<i style="color:${event.vote_average};" class="fa fa-star"></i> </span> 
+    </div>
+    </div>
+    `
 }
 
 
-
-async function getMovies () {
-    if (search == null) {
-    }else {
-        searchWord = search.value.toLowerCase();
-        movieCard.innerHTML = '';
-     }
-    let apiUrl = 'https://api.themoviedb.org/3/search/movie?page=' + pageNum + '&api_key=b9241059a29f2558a0863649e677788d' + '&query=' + searchWord; 
-    const response = await fetch(apiUrl);
-    const responseData = await response.json();
-    displayResult(responseData);
-}
-
-
-function displayResult(response) {
-    
-    response.results.forEach(result => {
-            movieCard.innerHTML += `
-
-            <img class="movie-poster" src="${IMG_URL + result.poster_path}" alt="${result.title}">
-
-            <div class="movie-title">
-                <h3>${result.title}</h3>
-                <span class="${getColor(result.vote_average)}">${result.vote_average}</span>
-            </div>
-            
-
-            <div class="popup">
-                <h3>Overview</h3>
-                ${result.overview}
-            </div>
-
-            `
-
-          });
-
-}
-
+//color rating based on the average vote 
 function getColor (vote) {
-    if (vote >= 8) {
+    if (vote >= 7) {
         return 'green'
     }else if (vote >= 5){
         return 'orange'
@@ -76,20 +63,42 @@ function getColor (vote) {
     }
 }
 
-function setUp (event) {
+//to show more movies
+function showMore(event){
     event.preventDefault();
+    pageNum++;
+    if (searchInput.value == ''){
+        getMovies();
+    }
+    else {
+        pageNum++;
+        initialLandingPage(searchInput.value);
+    }
+} 
+
+
+function clear(){
+    movieCard.innerHTML = ''
+    pageNum = 1
+    // console.log("hello");
     getMovies();
-}
-
-loadMoreEl.addEventListener("click", loadMore);
-
-function loadMore(evt) {
-   pageNum++;
-   getMovies(evt);
+    searchInput.value = '';
 }
 
 
-form.addEventListener('submit', setUp);
+async function submit(event) {
+    event.preventDefault();
+    movieCard.innerHTML = '';
+    searchTerm = searchInput.value;
+    const results = await initialLandingPage(searchTerm);
+    displayMovies(results);
+    searchInput.value = '';
 
-initialLoad();
+}
 
+searchForm.addEventListener('submit', submit);
+getMovies()
+
+loadMovies.addEventListener("click", showMore);
+
+clearSearch.addEventListener('click', clear);
