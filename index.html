@@ -4,38 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
     <title>Movie Website</title>
+
+    <!-- link css-->
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <h1><center>Flixster</center></h1>
-
-    <header>
-        <form id="form">
-            <input type="text" id="search-input" placeholder="Search">
+    <!--Header for the website-->
+    <div id="header" class ="container">
+        <h1 class="title" style="color: lightgray" >🍿Flixster</h1>
+         <form id="form" autocomplete="off">
+         <input id="search-input" type="text" placeholder="Search a movie.." name="movie-search"/>
+         <button class="search-input">Search Movies</button>
+         <button class="close-search-btn">Clear Results</button>
         </form>
-    </header>
-
-    <main id="movies-grid">
-        <div class="movie-card">
-            <img class="movie-poster" src="" alt="">
-
-            <div class="movie-title">
-                <h3></h3>
-                <span class="movie-votes"></span>
-            </div>
-
-            <div class="popup">
-                <h3>Overview</h3>
-            </div>
-
-        </div>
-    </main>
-    
-    <div class="load">
-        <button id="load-more-movies-btn">Load More</button>
     </div>
-    <script src="script.js"></script>
+
+    <!--The layout of the website-->
+    <div class="layout">
+        <section id="movie" class ="container"> 
+            <h3 class="now-playing" style="color: rgb(100, 185, 227)">Now Playing</h3>
+        </section>
+    </div>
+
+    <!--Where the movie informations are being displayed-->
+    <div id ="movies-grid">
+        <div class="grid-item" id="movie-card"></div>
+    </div>
+    
+    <!--The load button at the bottom of the page-->
+    <button class="load-more-movies-btn">Load More</button>
+
+    <!-- link script-->
+    <script src="script.js"></script>   
 </body>
 </html>
