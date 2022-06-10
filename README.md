@@ -2,7 +2,7 @@
 
 Submitted by: **Nasradin Kewden**
 
-Estimated time spent: **#** hours spent in total
+Estimated time spent: **27** hours spent in total
 
 Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
@@ -40,23 +40,22 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 
 ### Walkthrough Video
 
-`TODO://` Add the embedded URL code to your animated app walkthrough below, `ADD_EMBEDDED_CODE_HERE`. Make sure the video or gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after adding walkthrough video)
 
-`ADD_EMBEDDED_CODE_HERE`
+* Link:`https://imgur.com/dcI9MwL`
 
 ### Reflection
 
 * Did the topics discussed in your labs prepare you to complete the assignment? Be specific, which features in your weekly assignment did you feel unprepared to complete?
 
-Add your response here
+Lab 3 prepared me most for the assignment because we learned how to manipulate and work with APIs, which was crucial for the project. Using a search engine to find similar films with the keyword was a tricky part I wasn't prepared for, but with practice and failure, I was able to accomplish it.
 
 * If you had more time, what would you have done differently? Would you have added additional features? Changed the way your project responded to a particular event, etc.
   
-Add your response here
+I would have definitely added more features, like genre, and popularity, and spent more time learning CSS to make it more interesting for viewers.
 
 * Reflect on your project demo, what went well? Were there things that maybe didn't go as planned? Did you notice something that your peer did that you would like to try next time?
 
-Add your response here
+This was the first time I had ever used APIs, and it was a learning curve at first, but with practice and "console.log()" I was able to get the hang of it. My peers added movie trailer embedding and deployed it on Github, which I intend to use. Overall, it was a great learning experience.
 
 ### Open-source libraries used
 
@@ -64,4 +63,4 @@ Add your response here
 
 ### Shout out
 
-Give a shout out to somebody from your cohort that especially helped you during your project. This can be a fellow peer, instructor, TA, mentor, etc.
+Doug and Roy

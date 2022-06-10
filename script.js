@@ -20,8 +20,8 @@ const clearSearch = document.querySelector('.close-search-btn');
 
 
 //The initial load of the website
-async function initialLandingPage(searchQuery) {
-    const response = await fetch(searchMovieUrl + apiKey + "&query=" + searchQuery + "&page=" + pageNum);
+async function initialLandingPage(event) {
+    const response = await fetch(searchMovieUrl + apiKey + "&query=" + event + "&page=" + pageNum);
     const responseData = await response.json();
     const data = responseData.results
     // console.log("i'm here")
