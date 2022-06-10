@@ -30,12 +30,27 @@
 
 }
 
-body { 
-   background-color: var(--body-color);
-   margin: 0;
-   padding: 0;
-   color: #fff;
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+} 
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
+
+
+
 
 .movies{
    margin: 10px;
@@ -44,9 +59,7 @@ body {
 
 .movieDetails {
    display: flex;
-   flex-direction: row;
-   /* flex-flow: row nowrap; */
-   /* justify-content: space-between; */
+   flex-direction: column;
    width: 100px;
 }
 
@@ -69,7 +82,7 @@ body {
     border: none;
 }
 
-.search{
+.search-input{
     background-color: #4caf50;
     border: none;
     color: white;
@@ -86,8 +99,36 @@ body {
     background-color: red;
     border: none;
     color: white;
+    padding: 1px;
+    text-align: center;
     display: inline-block;
-    font-size: 14px;
-    font-size: 14px;
+    font-size: 13px;
 
 }
+
+.movie-vote-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    margin-left: 25px;
+  }
+
+form {
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: 25px;
+  }
+
+  #top-page,
+  #top-page:active,
+  #top-page:visited,
+  #top-page:focus,
+  #top-page:hover {
+    text-decoration: none !important;
+  }
