@@ -41,7 +41,7 @@ Deployed Application (optional): [Flixster Deployed Site](ADD_LINK_HERE)
 ### Walkthrough Video
 
 
-* Link:`https://imgur.com/dcI9MwL`
+* Link:https://imgur.com/dcI9MwL
 
 ### Reflection
 
