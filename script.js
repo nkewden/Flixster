@@ -7,7 +7,7 @@ let searchTerm = '';
 //API and URLs
 const searchMovieUrl = "https://api.themoviedb.org/3/search/movie?api_key=";
 const nowPlayingUrl = "https://api.themoviedb.org/3/movie/now_playing?&api_key=";
-const apiKey = "b9241059a29f2558a0863649e677788d";
+const apiKey = "";
 
 //Website Elements 
 const loadMovies= document.querySelector(".load-more-movies-btn");

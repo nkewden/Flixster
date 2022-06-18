@@ -68,10 +68,11 @@ body {
     font-size: 3px;
 }
 
-#load-more-movies-btn {
+.load-more-movies-btn {
    margin: 0%;
    text-align: center;
    align-items: center;
+   width: 98vw;
 }
 
 #form {
